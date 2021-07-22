@@ -1,11 +1,12 @@
 import React from "react";
+import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 
 const SearchFilter = () => {
   return (
-    <div>
-      <TextField label="Search input" margin="normal" variant="outlined" />
-    </div>
+    <FormControl>
+      <TextField label="Search input" variant="outlined" />
+    </FormControl>
   );
 };
 
