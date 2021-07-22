@@ -1,11 +1,13 @@
 import React from "react";
 
-import { StatusFilter } from "@atoms";
+import { StatusFilter, TimeFilter, SearchFilter } from "@atoms";
 
 const Filters = () => {
   return (
     <div>
+      <SearchFilter />
       <StatusFilter />
+      <TimeFilter />
     </div>
   );
 };
