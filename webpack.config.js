@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -7,6 +8,11 @@ module.exports = {
     publicPath: "/",
     filename: "app.bundle.js",
     path: path.resolve(__dirname, "build"),
+  },
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true,
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
