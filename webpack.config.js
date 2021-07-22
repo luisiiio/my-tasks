@@ -39,6 +39,7 @@ module.exports = {
       "@organisms": path.resolve(__dirname, "src/organisms/"),
       "@molecules": path.resolve(__dirname, "src/molecules/"),
       "@atoms": path.resolve(__dirname, "src/atoms/"),
+      "@utils": path.resolve(__dirname, "src/utils/"),
     },
   },
 };
