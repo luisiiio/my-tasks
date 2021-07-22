@@ -1,3 +1,5 @@
 src/pages/index.js
 src/molecules/index.js
+src/atoms/index.js 
+src/index.html
 package.json

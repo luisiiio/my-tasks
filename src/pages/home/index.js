@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { Filters } from "@molecules";
+
 const StyledHome = styled.div`
   margin: 0;
 `;
@@ -8,7 +10,8 @@ const StyledHome = styled.div`
 const Home = () => {
   return (
     <StyledHome>
-      <h1>Que onda mi gente d internet!</h1>
+      <h1>Que onda mi gente de internet!</h1>
+      <Filters />
     </StyledHome>
   );
 };
