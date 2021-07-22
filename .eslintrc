@@ -7,7 +7,8 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "plugin:json/recommended"
+    "plugin:json/recommended",
+    "plugin:markdown/recommended"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
@@ -17,7 +18,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react"],
+  "plugins": ["prettier", "react", "markdown"],
   "rules": {
     "no-console": "error"
   },
