@@ -1,4 +1,5 @@
 src/pages/index.js
+src/organisms/index.js
 src/molecules/index.js
 src/atoms/index.js 
 src/index.html
