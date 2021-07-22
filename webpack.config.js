@@ -33,4 +33,11 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    alias: {
+      "@pages": path.resolve(__dirname, "src/pages/"),
+      "@organisms": path.resolve(__dirname, "src/organisms/"),
+      "@molecules": path.resolve(__dirname, "src/molecules/"),
+    },
+  },
 };
