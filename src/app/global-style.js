@@ -7,11 +7,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  & #app {
-    display: flex;
-    justify-content: center;
-  }
-
   * {
     box-sizing: border-box;
   }

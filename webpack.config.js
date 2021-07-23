@@ -36,6 +36,7 @@ module.exports = {
   resolve: {
     alias: {
       "@pages": path.resolve(__dirname, "src/pages/"),
+      "@templates": path.resolve(__dirname, "src/templates/"),
       "@organisms": path.resolve(__dirname, "src/organisms/"),
       "@molecules": path.resolve(__dirname, "src/molecules/"),
       "@atoms": path.resolve(__dirname, "src/atoms/"),

@@ -17,7 +17,6 @@ const StyledHome = styled.div`
 const Home = () => {
   return (
     <StyledHome>
-      <h1>Que onda mi gente de internet!</h1>
       <Filters />
       <MainSection />
     </StyledHome>
