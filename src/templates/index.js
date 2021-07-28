@@ -1,1 +1,1 @@
-export DefaultTemplate from "./default-template";
+export DefaultTemplate from "./DefaultTemplate";

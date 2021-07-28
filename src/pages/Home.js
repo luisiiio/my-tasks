@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { MainSection, Filters } from "@molecules";
+import { TaskCard, Filters } from "@molecules";
 
 const StyledHome = styled.div`
   margin: 0;
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <StyledHome>
       <Filters />
-      <MainSection />
+      <TaskCard />
     </StyledHome>
   );
 };

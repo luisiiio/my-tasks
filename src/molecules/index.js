@@ -1,4 +1,3 @@
-export Filters from "./filters";
-export TabSelector from "./tab-selector";
-export MainSection from "./main-section";
-export Header from "./header";
+export Filters from "./Filters";
+export Header from "./Header";
+export TaskCard from "./TaskCard";

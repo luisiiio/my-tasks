@@ -1,3 +1,3 @@
-export StatusFilter from "./status-filter";
-export TimeFilter from "./time-filter";
-export SearchFilter from "./search-filter";
+export StatusFilter from "./StatusFilter";
+export TimeFilter from "./TimeFilter";
+export SearchFilter from "./SearchFilter";
