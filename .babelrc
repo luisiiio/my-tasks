@@ -3,5 +3,9 @@
       "@babel/preset-env",
       "@babel/preset-react"
     ],
-    "plugins": ["@babel/plugin-syntax-export-default-from", "transform-export-extensions"]
+    "plugins": [
+      "@babel/plugin-syntax-export-default-from", 
+      "transform-export-extensions", 
+      "babel-plugin-styled-components"
+    ]
   }

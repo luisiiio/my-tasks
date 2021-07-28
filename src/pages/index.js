@@ -1,2 +1,2 @@
-export Home from "./home";
-export NotFound from "./not-found";
+export Home from "./Home";
+export NotFound from "./NotFound";
