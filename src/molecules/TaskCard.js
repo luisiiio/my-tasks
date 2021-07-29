@@ -1,20 +1,51 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
-import EditIcon from "@material-ui/icons/Edit";
-import ReplayIcon from "@material-ui/icons/Replay";
-import DeleteIcon from "@material-ui/icons/Delete";
-import DoneIcon from "@material-ui/icons/Done";
 import Divider from "@material-ui/core/Divider";
+import TaskCardContent from "./TaskCardContent";
+import TaskCardActions from "./TaskCardActions";
+
+const TaskCard = ({
+  name,
+  description,
+  duration,
+  createdDate,
+  completedDate,
+}) => {
+  const classes = useStyles();
+
+  return (
+    <Card className={classes.root}>
+      <TaskCardContent
+        name={name}
+        duration={duration}
+        createdDate={createdDate}
+        completedDate={completedDate}
+        description={description}
+        classes={classes}
+      />
+      <Divider variant="middle" />
+      <TaskCardActions classes={classes} />
+    </Card>
+  );
+};
+
+TaskCard.propTypes = {
+  uuid: PropTypes.number,
+  name: PropTypes.string,
+  description: PropTypes.string,
+  duration: PropTypes.string,
+  createdDate: PropTypes.string,
+  completedDate: PropTypes.string,
+  spendTime: PropTypes.number,
+};
+
+export default TaskCard;
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 350,
+    maxWidth: 280,
     width: "calc(100% - 20px)",
     margin: 10,
   },
@@ -23,7 +54,12 @@ const useStyles = makeStyles({
     margin: "0 2px",
     transform: "scale(0.8)",
   },
-  sub: {
+  duration: {
+    textAlign: "end",
+    fontSize: 12,
+    margin: "5px 0",
+  },
+  dates: {
     fontSize: 12,
     margin: "5px 0",
   },
@@ -40,50 +76,3 @@ const useStyles = makeStyles({
     width: 20,
   },
 });
-
-const MainSection = () => {
-  const classes = useStyles();
-
-  return (
-    <>
-      <Card className={classes.root}>
-        <CardContent>
-          <Typography variant="h5" component="h2">
-            Mi primer tarea
-          </Typography>
-          <Typography className={classes.sub} color="textSecondary">
-            Duración: Corta
-          </Typography>
-          <Typography className={classes.sub} color="textSecondary">
-            Creada: 20 Jul 21 - Completada: 25 Jul 21
-          </Typography>
-          <Typography variant="body2" component="p">
-            Esta es mi primer tarea, tengo que familiarizarme con la app y
-            generar una nueva tarea. También tendré que consultar la gráfica
-            para ver las estadisticas de mi productividad.
-          </Typography>
-        </CardContent>
-        <Divider variant="middle" />
-        <CardActions className={classes.actionsContainer}>
-          <IconButton color="primary" aria-label="play/pause">
-            <EditIcon className={classes.icon} />
-          </IconButton>
-          <IconButton color="primary" aria-label="play/pause">
-            <ReplayIcon className={classes.icon} />
-          </IconButton>
-          <IconButton color="primary" aria-label="play/pause">
-            <PlayArrowIcon className={classes.playIcon} />
-          </IconButton>
-          <IconButton color="primary" aria-label="play/pause">
-            <DeleteIcon className={classes.icon} />
-          </IconButton>
-          <IconButton color="primary" aria-label="play/pause">
-            <DoneIcon className={classes.icon} />
-          </IconButton>
-        </CardActions>
-      </Card>
-    </>
-  );
-};
-
-export default MainSection;

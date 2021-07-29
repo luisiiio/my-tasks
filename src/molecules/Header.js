@@ -39,7 +39,11 @@ const Header = () => {
           </Typography>
 
           <div>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
               Nueva Tarea
             </Button>
             <Link to="/" className={classes.link}>

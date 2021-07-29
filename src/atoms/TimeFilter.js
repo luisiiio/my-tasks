@@ -23,7 +23,7 @@ const TimeFilter = () => {
         <MenuItem value="all">Todas</MenuItem>
         <MenuItem value="short">Corta: 30min o menos</MenuItem>
         <MenuItem value="medium">Media: 30min - 1hr</MenuItem>
-        <MenuItem value="large">Larga: más de 1hr</MenuItem>
+        <MenuItem value="large">Larga: 1hr - 2hrs</MenuItem>
       </Select>
     </FormControl>
   );

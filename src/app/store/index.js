@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from "redux";
-import { taskReducer } from "./task/reducer";
+import { tasksReducer } from "./tasks/reducer";
 
 const reducer = combineReducers({
-  task: taskReducer,
+  tasks: tasksReducer,
 });
 
 const enhancer =
