@@ -1,14 +1,19 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateStatusFilter } from "@store/filters/actions";
+// view components
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 
 const StatusFilter = () => {
-  const [age, setAge] = React.useState("");
+  const dispatch = useDispatch();
+  const statusFilter = useSelector((state) => state.filters.statusFilter);
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    event.preventDefault();
+    dispatch(updateStatusFilter({ statusFilter: event.target.value }));
   };
   return (
     <FormControl variant="outlined">
@@ -16,12 +21,12 @@ const StatusFilter = () => {
       <Select
         labelId="demo-simple-select-outlined-label"
         id="demo-simple-select-outlined"
-        value={age}
+        value={statusFilter}
         onChange={handleChange}
-        label="Age"
+        label="estatus"
       >
         <MenuItem value="all">Todas</MenuItem>
-        <MenuItem value="completed">Completadas</MenuItem>
+        <MenuItem value="done">Completadas</MenuItem>
         <MenuItem value="pending">Pendientes</MenuItem>
       </Select>
     </FormControl>
