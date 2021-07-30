@@ -2,7 +2,6 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import Divider from "@material-ui/core/Divider";
 import TaskCardContent from "./TaskCardContent";
 import TaskCardActions from "./TaskCardActions";
 
@@ -25,7 +24,6 @@ const TaskCard = ({
         description={description}
         classes={classes}
       />
-      <Divider variant="middle" />
       <TaskCardActions classes={classes} />
     </Card>
   );
@@ -48,6 +46,9 @@ const useStyles = makeStyles({
     maxWidth: 280,
     width: "calc(100% - 20px)",
     margin: 10,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   bullet: {
     display: "inline-block",

@@ -1,6 +1,9 @@
+import moment from "moment";
+import "moment/locale/es-mx";
 import { ADD_TASK } from "./actions";
 
 let id = 1;
+moment.locale("es");
 
 export const initialTasks = [
   {
@@ -8,8 +11,8 @@ export const initialTasks = [
     name: "Tofu Roast",
     description: "hi one",
     duration: "short",
-    createdDate: "21-Jul-20",
-    completedDate: "21-Jul-24",
+    createdDate: moment().subtract(3, "days").format("DD-MMMM-YYYY"),
+    completedDate: moment().subtract(2, "days").format("DD-MMMM-YYYY"),
     spendTime: null,
   },
   {
@@ -17,17 +20,17 @@ export const initialTasks = [
     name: "Vegan Ham",
     description: "hi two",
     duration: "medium",
-    createdDate: "21-Jul-20",
-    completedDate: "21-Jul-24",
+    createdDate: moment().subtract(5, "days").format("DD-MMMM-YYYY"),
+    completedDate: moment().subtract(5, "days").format("DD-MMMM-YYYY"),
     spendTime: null,
   },
   {
     uuid: id++,
-    name: "Vegan Ham",
+    name: "Vegan Ham two",
     description: "hi three",
     duration: "large",
-    createdDate: "21-Jul-20",
-    completedDate: "21-Jul-24",
+    createdDate: moment().subtract(8, "days").format("DD-MMMM-YYYY"),
+    completedDate: moment().subtract(7, "days").format("DD-MMMM-YYYY"),
     spendTime: null,
   },
   {
@@ -36,8 +39,8 @@ export const initialTasks = [
     description:
       "Desarrollar maqueta del componente usuarios, siguiendo el design system de la aplicación",
     duration: "large",
-    createdDate: "21-Jul-20",
-    completedDate: "21-Jul-24",
+    createdDate: moment().subtract(11, "days").format("DD-MMMM-YYYY"),
+    completedDate: moment().subtract(10, "days").format("DD-MMMM-YYYY"),
     spendTime: null,
   },
 ];
@@ -49,7 +52,7 @@ export const tasksReducer = (state = initialTasks, action) => {
       name: action.payload.name,
       description: action.payload.description,
       duration: action.payload.duration,
-      createdDate: new Date(),
+      createdDate: moment().format("DD-MMMM-YYYY"),
       completedDate: null,
       spendTime: null,
     };

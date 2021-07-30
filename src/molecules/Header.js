@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateShowTaskForm } from "@store/controls/actions";
 
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -17,15 +19,21 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const handleMenu = (event) => {
     event.preventDefault();
+  };
+
+  const handleNewTask = (event) => {
+    event.preventDefault();
+    dispatch(updateShowTaskForm({ showTaskForm: true }));
   };
 
   return (
@@ -40,6 +48,7 @@ const Header = () => {
 
           <div>
             <Button
+              onClick={handleNewTask}
               variant="contained"
               color="secondary"
               className={classes.button}

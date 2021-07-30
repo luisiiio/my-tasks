@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import device from "@utils/device";
-import { StatusFilter, TimeFilter, SearchFilter } from "@atoms";
+import { StatusFilter, DurationFilter, SearchFilter } from "@atoms";
 
 const StyledFilters = styled.section`
   margin: 0;
@@ -24,7 +24,7 @@ const Filters = () => {
     <StyledFilters>
       <SearchFilter />
       <StatusFilter />
-      <TimeFilter />
+      <DurationFilter />
     </StyledFilters>
   );
 };

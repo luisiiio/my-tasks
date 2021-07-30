@@ -26,7 +26,14 @@ const TaskCardContent = ({
         {name}
       </Typography>
       <Typography className={classes.dates} color="textSecondary">
-        {`Creada: ${createdDate} - Completada: ${completedDate}`}
+        <strong>Creada</strong>
+        {" " + createdDate}
+        {completedDate && (
+          <>
+            <strong> - Completada</strong>
+            {" " + completedDate}
+          </>
+        )}
       </Typography>
       <Typography variant="body2" component="p">
         {description}
