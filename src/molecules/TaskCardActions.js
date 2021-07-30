@@ -2,7 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { useDispatch } from "react-redux";
 import { updateTaskToEdit, updateShowTaskForm } from "@store/controls/actions";
-import { deleteTask } from "@store/tasks/actions";
+import { deleteTask, completeTask } from "@store/tasks/actions";
 // view components
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
@@ -13,7 +13,14 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import DoneIcon from "@material-ui/icons/Done";
 import Divider from "@material-ui/core/Divider";
 
-const TaskCardActions = ({ uuid, name, description, duration, classes }) => {
+const TaskCardActions = ({
+  uuid,
+  name,
+  description,
+  duration,
+  completedDate,
+  classes,
+}) => {
   const dispatch = useDispatch();
 
   const handleDispatch = (btnAction) => {
@@ -24,6 +31,9 @@ const TaskCardActions = ({ uuid, name, description, duration, classes }) => {
         break;
       case "delete":
         dispatch(deleteTask({ uuid }));
+        break;
+      case "complete":
+        dispatch(completeTask({ uuid }));
         break;
 
       default:
@@ -40,14 +50,23 @@ const TaskCardActions = ({ uuid, name, description, duration, classes }) => {
             handleDispatch("edit");
           }}
           color="primary"
-          aria-label="play/pause"
+          aria-label="edit task"
+          disabled={Boolean(completedDate)}
         >
           <EditIcon className={classes.icon} />
         </IconButton>
-        <IconButton color="primary" aria-label="play/pause">
+        <IconButton
+          color="primary"
+          aria-label="replay task"
+          disabled={Boolean(completedDate)}
+        >
           <ReplayIcon className={classes.icon} />
         </IconButton>
-        <IconButton color="primary" aria-label="play/pause">
+        <IconButton
+          color="primary"
+          aria-label="play/pause"
+          disabled={Boolean(completedDate)}
+        >
           <PlayArrowIcon className={classes.playIcon} />
         </IconButton>
         <IconButton
@@ -55,11 +74,18 @@ const TaskCardActions = ({ uuid, name, description, duration, classes }) => {
             handleDispatch("delete");
           }}
           color="primary"
-          aria-label="delete"
+          aria-label="delete task"
         >
           <DeleteIcon className={classes.icon} />
         </IconButton>
-        <IconButton color="primary" aria-label="play/pause">
+        <IconButton
+          onClick={() => {
+            handleDispatch("complete");
+          }}
+          color="primary"
+          aria-label="complete task"
+          disabled={Boolean(completedDate)}
+        >
           <DoneIcon className={classes.icon} />
         </IconButton>
       </CardActions>
@@ -72,6 +98,7 @@ TaskCardActions.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
   duration: PropTypes.string,
+  completedDate: PropTypes.string,
   classes: PropTypes.object,
 };
 

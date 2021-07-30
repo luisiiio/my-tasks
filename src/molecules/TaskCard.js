@@ -30,6 +30,7 @@ const TaskCard = ({
         name={name}
         description={description}
         duration={duration}
+        completedDate={completedDate}
         classes={classes}
       />
     </Card>

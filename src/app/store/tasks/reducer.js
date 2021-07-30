@@ -1,6 +1,6 @@
 import moment from "moment";
 import "moment/locale/es-mx";
-import { ADD_TASK, UPDATE_TASK, DELETE_TASK } from "./actions";
+import { ADD_TASK, UPDATE_TASK, DELETE_TASK, COMPLETE_TASK } from "./actions";
 
 let id = 1;
 moment.locale("es");
@@ -67,6 +67,11 @@ export const tasksReducer = (state = initialTasks, action) => {
   if (action.type === DELETE_TASK) {
     const tasks = state.filter((t) => t.uuid !== action.payload.uuid);
     return [...tasks];
+  }
+  if (action.type === COMPLETE_TASK) {
+    const task = state.find((t) => t.uuid === action.payload.uuid);
+    task.completedDate = moment().format("DD-MMMM-YYYY");
+    return [...state];
   }
   return state;
 };
