@@ -2,6 +2,7 @@ import React from "react";
 import { PropTypes } from "prop-types";
 import { useDispatch } from "react-redux";
 import { updateTaskToEdit, updateShowTaskForm } from "@store/controls/actions";
+import { deleteTask } from "@store/tasks/actions";
 // view components
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
@@ -20,6 +21,9 @@ const TaskCardActions = ({ uuid, name, description, duration, classes }) => {
       case "edit":
         dispatch(updateTaskToEdit({ uuid, name, description, duration }));
         dispatch(updateShowTaskForm({ showTaskForm: true }));
+        break;
+      case "delete":
+        dispatch(deleteTask({ uuid }));
         break;
 
       default:
@@ -46,7 +50,13 @@ const TaskCardActions = ({ uuid, name, description, duration, classes }) => {
         <IconButton color="primary" aria-label="play/pause">
           <PlayArrowIcon className={classes.playIcon} />
         </IconButton>
-        <IconButton color="primary" aria-label="play/pause">
+        <IconButton
+          onClick={() => {
+            handleDispatch("delete");
+          }}
+          color="primary"
+          aria-label="delete"
+        >
           <DeleteIcon className={classes.icon} />
         </IconButton>
         <IconButton color="primary" aria-label="play/pause">

@@ -1,6 +1,6 @@
 import moment from "moment";
 import "moment/locale/es-mx";
-import { ADD_TASK, UPDATE_TASK } from "./actions";
+import { ADD_TASK, UPDATE_TASK, DELETE_TASK } from "./actions";
 
 let id = 1;
 moment.locale("es");
@@ -63,6 +63,10 @@ export const tasksReducer = (state = initialTasks, action) => {
     task.name = action.payload.name;
     task.description = action.payload.description;
     return [...state];
+  }
+  if (action.type === DELETE_TASK) {
+    const tasks = state.filter((t) => t.uuid !== action.payload.uuid);
+    return [...tasks];
   }
   return state;
 };

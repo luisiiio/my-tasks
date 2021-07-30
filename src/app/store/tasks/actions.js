@@ -23,3 +23,12 @@ export const updateTask = ({ uuid, name, description }) => {
     },
   };
 };
+
+export const deleteTask = ({ uuid }) => {
+  return {
+    type: DELETE_TASK,
+    payload: {
+      uuid,
+    },
+  };
+};
