@@ -2,8 +2,9 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useSelector, useDispatch } from "react-redux";
-import { updateShowTaskForm } from "@store/controls/actions";
-import { addTask } from "@store/tasks/actions";
+import { updateShowTaskForm, updateTaskToEdit } from "@store/controls/actions";
+import { addTask, updateTask } from "@store/tasks/actions";
+// view components
 import { DurationFilter } from "@atoms";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -15,18 +16,23 @@ import Divider from "@material-ui/core/Divider";
 
 const TaskForm = () => {
   const showTaskForm = useSelector((state) => state.controls.showTaskForm);
+  const taskToEdit = useSelector((state) => state.controls.taskToEdit);
   const dispatch = useDispatch();
 
   const handleClose = () => {
     formik.resetForm();
     dispatch(updateShowTaskForm({ showTaskForm: false }));
+    if (taskToEdit) {
+      dispatch(updateTaskToEdit({ taskToEdit: false }));
+    }
   };
 
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
-      name: "",
-      description: "",
-      duration: "",
+      name: taskToEdit ? taskToEdit.name : "",
+      description: taskToEdit ? taskToEdit.description : "",
+      duration: taskToEdit ? taskToEdit.duration : "",
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Campo requerido"),
@@ -35,7 +41,17 @@ const TaskForm = () => {
     }),
     onSubmit: (values, { resetForm }) => {
       handleClose();
-      dispatch(addTask({ ...values }));
+      if (taskToEdit) {
+        dispatch(
+          updateTask({
+            uuid: taskToEdit.uuid,
+            name: values.name,
+            description: values.description,
+          })
+        );
+      } else {
+        dispatch(addTask({ ...values }));
+      }
       resetForm();
     },
   });
@@ -46,7 +62,9 @@ const TaskForm = () => {
       onClose={handleClose}
       aria-label="form-dialog-title"
     >
-      <DialogTitle id="form-dialog-title">Agregar tarea</DialogTitle>
+      <DialogTitle id="form-dialog-title">
+        {taskToEdit ? "Editar " : " Agregar"} tarea
+      </DialogTitle>
       <DialogContent>
         <TextField
           value={formik.values.name}
@@ -82,6 +100,7 @@ const TaskForm = () => {
           fullWidth
         />
         <DurationFilter
+          disabled={taskToEdit ? true : false}
           value={formik.values.duration}
           onChangeSelect={formik.handleChange}
           onBlur={formik.handleBlur}

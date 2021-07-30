@@ -30,6 +30,10 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     margin: 0;
   }
+
+  .MuiDialog-paperWidthSm {
+    max-width: 500px;
+  }
 `;
 
 export default GlobalStyle;

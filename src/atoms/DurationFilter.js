@@ -14,6 +14,7 @@ const DurationFilter = ({
   name,
   error = false,
   helperText = "",
+  disabled = false,
 }) => {
   return (
     <TextField
@@ -29,6 +30,8 @@ const DurationFilter = ({
       onChange={onChangeSelect}
       error={error}
       helperText={helperText}
+      disabled={disabled}
+      disableGutters
     >
       {!isForm && <MenuItem value="all">Todas</MenuItem>}
       <MenuItem value="short">Corta: 30min o menos</MenuItem>
@@ -48,6 +51,7 @@ DurationFilter.propTypes = {
   fullWidth: PropTypes.bool,
   margin: PropTypes.string,
   style: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChangeSelect: PropTypes.func,
 };
 

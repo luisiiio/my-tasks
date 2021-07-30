@@ -6,6 +6,7 @@ import TaskCardContent from "./TaskCardContent";
 import TaskCardActions from "./TaskCardActions";
 
 const TaskCard = ({
+  uuid,
   name,
   description,
   duration,
@@ -24,7 +25,13 @@ const TaskCard = ({
         description={description}
         classes={classes}
       />
-      <TaskCardActions classes={classes} />
+      <TaskCardActions
+        uuid={uuid}
+        name={name}
+        description={description}
+        duration={duration}
+        classes={classes}
+      />
     </Card>
   );
 };

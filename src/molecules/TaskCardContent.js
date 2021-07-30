@@ -30,7 +30,8 @@ const TaskCardContent = ({
         {" " + createdDate}
         {completedDate && (
           <>
-            <strong> - Completada</strong>
+            <br />
+            <strong>Completada</strong>
             {" " + completedDate}
           </>
         )}
