@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateShowTaskForm, updateTaskToEdit } from "@store/controls/actions";
 import { addTask, updateTask } from "@store/tasks/actions";
 // view components
-import { DurationFilter } from "@atoms";
+import { SelectDuration } from "@atoms";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -99,7 +99,7 @@ const TaskForm = () => {
           variant="outlined"
           fullWidth
         />
-        <DurationFilter
+        <SelectDuration
           disabled={taskToEdit ? true : false}
           value={formik.values.duration}
           onChangeSelect={formik.handleChange}

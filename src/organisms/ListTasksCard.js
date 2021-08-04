@@ -15,6 +15,7 @@ const StyledListTasksCard = styled.main`
 const ListTasksCard = () => {
   const tasks = useSelector((state) => state.tasks);
   const statusFilter = useSelector((state) => state.filters.statusFilter);
+  const durationFilter = useSelector((state) => state.filters.durationFilter);
 
   const applyStatusFilter = (tasks) => {
     if (statusFilter === "done") {
@@ -26,11 +27,18 @@ const ListTasksCard = () => {
     return tasks;
   };
 
-  const orderedTasks = applyStatusFilter(tasks);
+  const applyDurationFilter = (tasks) => {
+    if (durationFilter === "all") {
+      return tasks;
+    }
+    return tasks.filter((t) => t.duration === durationFilter);
+  };
+
+  const tasksFiltered = applyDurationFilter(applyStatusFilter(tasks));
 
   return (
     <StyledListTasksCard>
-      {orderedTasks.map((task) => (
+      {tasksFiltered.map((task) => (
         <TaskCard key={task.uuid} {...task} />
       ))}
     </StyledListTasksCard>
