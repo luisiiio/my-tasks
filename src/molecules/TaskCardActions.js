@@ -6,9 +6,7 @@ import { deleteTask, completeTask } from "@store/tasks/actions";
 // view components
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import EditIcon from "@material-ui/icons/Edit";
-import ReplayIcon from "@material-ui/icons/Replay";
 import DeleteIcon from "@material-ui/icons/Delete";
 import DoneIcon from "@material-ui/icons/Done";
 import Divider from "@material-ui/core/Divider";
@@ -54,20 +52,6 @@ const TaskCardActions = ({
           disabled={Boolean(completedDate)}
         >
           <EditIcon className={classes.icon} />
-        </IconButton>
-        <IconButton
-          color="primary"
-          aria-label="replay task"
-          disabled={Boolean(completedDate)}
-        >
-          <ReplayIcon className={classes.icon} />
-        </IconButton>
-        <IconButton
-          color="primary"
-          aria-label="play/pause"
-          disabled={Boolean(completedDate)}
-        >
-          <PlayArrowIcon className={classes.playIcon} />
         </IconButton>
         <IconButton
           onClick={() => {

@@ -2,25 +2,21 @@ import React from "react";
 import { useSelector } from "react-redux";
 // view components
 import styled from "styled-components";
-import device from "@utils/device";
 import { StatusFilter, DurationFilter, SearchFilter } from "@atoms";
 
 const StyledFilters = styled.section`
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  height: ${(props) => (props.showFilters ? "auto" : "0px")};
-  opacity: ${(props) => (props.showFilters ? "1" : "0")};
+  width: 100%;
+  display: ${(props) => (props.showFilters ? "grid" : "none")};
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  padding: 10px 0;
+  overflow: scroll;
 
   > div {
-    min-width: 250px;
-    margin: 5px;
+    min-width: 100px;
+    max-width: 300px;
   }
-  /* stylelint-disable-next-line value-keyword-case */
-  ${device.mamabear` 
-    flex-direction: row;
-    justify-content: space-between;
-  `}
 `;
 
 const Filters = () => {
