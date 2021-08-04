@@ -65,7 +65,7 @@ const TaskForm = () => {
       <DialogTitle id="form-dialog-title">
         {taskToEdit ? "Editar " : " Agregar"} tarea
       </DialogTitle>
-      <DialogContent>
+      <DialogContent style={{ maxWidth: "500px" }}>
         <TextField
           value={formik.values.name}
           onChange={formik.handleChange}
