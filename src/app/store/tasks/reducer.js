@@ -8,26 +8,19 @@ moment.locale("es");
 export const initialTasks = [
   {
     uuid: id++,
-    name: "Tofu Roast",
-    description: "hi one",
-    duration: "short",
-    createdDate: moment().subtract(3, "days").format("DD-MMMM-YYYY"),
-    completedDate: moment().subtract(2, "days").format("DD-MMMM-YYYY"),
+    name: "🎨 Maquetar componente de usuarios",
+    description:
+      "Desarrollar maqueta del componente usuarios, siguiendo el design system de la aplicación",
+    duration: "large",
+    createdDate: moment().subtract(11, "days").format("DD-MMMM-YYYY"),
+    completedDate: moment().subtract(10, "days").format("DD-MMMM-YYYY"),
     spendTime: null,
   },
   {
     uuid: id++,
-    name: "Vegan Ham",
-    description: "hi two",
-    duration: "medium",
-    createdDate: moment().subtract(5, "days").format("DD-MMMM-YYYY"),
-    completedDate: moment().subtract(5, "days").format("DD-MMMM-YYYY"),
-    spendTime: null,
-  },
-  {
-    uuid: id++,
-    name: "Vegan Ham two",
-    description: "hi three",
+    name: "🔌 Conectar API",
+    description:
+      "Conectar API para tener el CRUD de las tareas con el fin de poder crear, obtener, actualizar o eliminar tareas",
     duration: "large",
     createdDate: moment().subtract(8, "days").format("DD-MMMM-YYYY"),
     completedDate: moment().subtract(7, "days").format("DD-MMMM-YYYY"),
@@ -35,12 +28,20 @@ export const initialTasks = [
   },
   {
     uuid: id++,
-    name: "Maquetar componente de usuarios",
-    description:
-      "Desarrollar maqueta del componente usuarios, siguiendo el design system de la aplicación",
-    duration: "large",
-    createdDate: moment().subtract(11, "days").format("DD-MMMM-YYYY"),
-    completedDate: moment().subtract(10, "days").format("DD-MMMM-YYYY"),
+    name: "📃 Documentación",
+    description: "Crear documentación para su uso",
+    duration: "medium",
+    createdDate: moment().subtract(5, "days").format("DD-MMMM-YYYY"),
+    completedDate: moment().subtract(5, "days").format("DD-MMMM-YYYY"),
+    spendTime: null,
+  },
+  {
+    uuid: id++,
+    name: "⚡️ Bienvenido ⚡ ️",
+    description: "Crea tareas y lleva su seguimiento",
+    duration: "short",
+    createdDate: moment().subtract(3, "days").format("DD-MMMM-YYYY"),
+    completedDate: null,
     spendTime: null,
   },
 ];
