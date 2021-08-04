@@ -71,8 +71,8 @@ yarn precommit
 | ----------- | ----------- |
 | August 2021 | August 2021 |
 
-- agregar grafica para ver las estadisticas de las tareas completadas
-- agregar reprductor de tareas para poder iniciar, pausar o reiniciar el tiempo de cada tarea
+- add graph to see statistics of completed tasks
+- add task player to be able to start, pause or restart the time of each task
 
 ### Cycle 2:
 
