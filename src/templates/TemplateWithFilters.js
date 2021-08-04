@@ -1,18 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Header, TaskForm } from "@molecules";
-const DefaultTemplate = ({ children }) => {
+import { Header, TaskForm, Filters } from "@molecules";
+const TemplateWithFilters = ({ children }) => {
   return (
     <>
       <Header />
+      <Filters />
       <TaskForm />
       {children}
     </>
   );
 };
 
-DefaultTemplate.propTypes = {
+TemplateWithFilters.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default DefaultTemplate;
+export default TemplateWithFilters;

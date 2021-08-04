@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-
-import { Filters } from "@molecules";
+import { TemplateWithFilters } from "@templates";
 import { ListTasksCard } from "@organisms";
 
-const StyledHome = styled.div`
+const StyledHome = styled(TemplateWithFilters)`
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -18,7 +17,6 @@ const StyledHome = styled.div`
 const Home = () => {
   return (
     <StyledHome>
-      <Filters />
       <ListTasksCard />
     </StyledHome>
   );

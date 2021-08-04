@@ -1,10 +1,11 @@
 import React from "react";
+import { DefaultTemplate } from "@templates";
 
 const NotFound = () => {
   return (
-    <div>
+    <DefaultTemplate>
       <h1>Not Found</h1>
-    </div>
+    </DefaultTemplate>
   );
 };
 
