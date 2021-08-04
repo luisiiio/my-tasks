@@ -18,7 +18,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react", "markdown"],
+  "plugins": ["prettier", "react", "markdown", "html"],
   "rules": {
     "no-console": "error"
   },
