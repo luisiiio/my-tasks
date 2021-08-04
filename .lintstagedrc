@@ -1,5 +1,5 @@
 {
-    "*.{js,json,html,md}": [
+    "*.{js,json,html}": [
       "eslint",
       "stylelint",
       "prettier --write",
