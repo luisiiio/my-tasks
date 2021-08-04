@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Header, TaskForm, Filters } from "@molecules";
+import { Header, TaskForm, Filters, Footer } from "@molecules";
 import styled from "styled-components";
 
 const StyledMain = styled.main`
   width: 100vw;
   margin: 20px auto 0;
+  padding: 0 10px;
   max-width: 950px;
   display: grid;
   grid-template-columns: 1fr;
@@ -22,7 +23,7 @@ const TemplateWithFilters = ({ children }) => {
         <Filters />
         {children}
       </StyledMain>
-      <footer>this is my footer</footer>
+      <Footer />
     </>
   );
 };

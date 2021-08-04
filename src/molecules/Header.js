@@ -45,7 +45,7 @@ const Header = () => {
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" className={classes.link}>
-              My Tasks App
+              My Tasks
             </Link>
           </Typography>
 
@@ -58,22 +58,12 @@ const Header = () => {
             >
               Nueva Tarea
             </Button>
-            <Link to="/" className={classes.link}>
-              <Button color="secondary" className={classes.button}>
-                Lista
-              </Button>
-            </Link>
-            <Link to="/graph" className={classes.link}>
-              <Button color="secondary" className={classes.button}>
-                Gráfica
-              </Button>
-            </Link>
             <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleToggleFilters}
-              color="inherit"
+              style={{ color: showFilters ? "white" : "#5B5B5B" }}
             >
               <TuneIcon />
             </IconButton>

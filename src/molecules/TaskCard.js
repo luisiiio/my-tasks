@@ -57,6 +57,7 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
+    border: "1px solid rgba(0, 0, 0, 0.20)",
   },
   bullet: {
     display: "inline-block",
