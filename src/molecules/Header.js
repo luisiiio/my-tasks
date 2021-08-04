@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { updateShowTaskForm } from "@store/controls/actions";
+import { toggleShowFilters } from "@store/filters/actions";
 
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -17,20 +20,28 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
   },
   button: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(1),
   },
 }));
 
 const Header = () => {
   const classes = useStyles();
+  const showFilters = useSelector((state) => state.filters.showFilters);
+  const dispatch = useDispatch();
 
-  const handleMenu = (event) => {
+  const handleToggleFilters = (event) => {
     event.preventDefault();
+    dispatch(toggleShowFilters({ showFilters: !showFilters }));
+  };
+
+  const handleNewTask = (event) => {
+    event.preventDefault();
+    dispatch(updateShowTaskForm({ showTaskForm: true }));
   };
 
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" className={classes.link}>
@@ -39,7 +50,12 @@ const Header = () => {
           </Typography>
 
           <div>
-            <Button variant="contained" color="secondary">
+            <Button
+              onClick={handleNewTask}
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
               Nueva Tarea
             </Button>
             <Link to="/" className={classes.link}>
@@ -56,7 +72,7 @@ const Header = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-              onClick={handleMenu}
+              onClick={handleToggleFilters}
               color="inherit"
             >
               <TuneIcon />

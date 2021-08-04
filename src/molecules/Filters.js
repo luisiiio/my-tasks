@@ -1,12 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
+// view components
 import styled from "styled-components";
 import device from "@utils/device";
-import { StatusFilter, TimeFilter, SearchFilter } from "@atoms";
+import { StatusFilter, DurationFilter, SearchFilter } from "@atoms";
 
 const StyledFilters = styled.section`
   margin: 0;
   display: flex;
   flex-direction: column;
+  height: ${(props) => (props.showFilters ? "auto" : "0px")};
+  opacity: ${(props) => (props.showFilters ? "1" : "0")};
 
   > div {
     min-width: 250px;
@@ -20,11 +24,12 @@ const StyledFilters = styled.section`
 `;
 
 const Filters = () => {
+  const showFilters = useSelector((state) => state.filters.showFilters);
   return (
-    <StyledFilters>
+    <StyledFilters showFilters={showFilters}>
       <SearchFilter />
       <StatusFilter />
-      <TimeFilter />
+      <DurationFilter />
     </StyledFilters>
   );
 };

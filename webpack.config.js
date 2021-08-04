@@ -35,6 +35,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      "@store": path.resolve(__dirname, "src/app/store"),
       "@pages": path.resolve(__dirname, "src/pages/"),
       "@templates": path.resolve(__dirname, "src/templates/"),
       "@organisms": path.resolve(__dirname, "src/organisms/"),
