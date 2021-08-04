@@ -16,6 +16,7 @@ const ListTasksCard = () => {
   const tasks = useSelector((state) => state.tasks);
   const statusFilter = useSelector((state) => state.filters.statusFilter);
   const durationFilter = useSelector((state) => state.filters.durationFilter);
+  const searchFilter = useSelector((state) => state.filters.searchFilter);
 
   const applyStatusFilter = (tasks) => {
     if (statusFilter === "done") {
@@ -34,7 +35,19 @@ const ListTasksCard = () => {
     return tasks.filter((t) => t.duration === durationFilter);
   };
 
-  const tasksFiltered = applyDurationFilter(applyStatusFilter(tasks));
+  const applySearchFilter = (tasks) => {
+    if (searchFilter === "") {
+      return tasks;
+    }
+    return tasks.filter(
+      (t) =>
+        t.name.includes(searchFilter) || t.description.includes(searchFilter)
+    );
+  };
+
+  const tasksFiltered = applySearchFilter(
+    applyDurationFilter(applyStatusFilter(tasks))
+  );
 
   return (
     <StyledListTasksCard>

@@ -1,8 +1,13 @@
-import { UPDATE_STATUS_FILTER, UPDATE_DURATION_FILTER } from "./actions";
+import {
+  UPDATE_STATUS_FILTER,
+  UPDATE_DURATION_FILTER,
+  UPDATE_SEARCH_FILTER,
+} from "./actions";
 
 export const initialFilters = {
   statusFilter: "all",
   durationFilter: "all",
+  searchFilter: "",
 };
 
 export const filtersReducer = (state = initialFilters, action) => {
@@ -11,6 +16,9 @@ export const filtersReducer = (state = initialFilters, action) => {
   }
   if (action.type === UPDATE_DURATION_FILTER) {
     return { ...state, durationFilter: action.payload.durationFilter };
+  }
+  if (action.type === UPDATE_SEARCH_FILTER) {
+    return { ...state, searchFilter: action.payload.searchFilter };
   }
   return { ...state };
 };
