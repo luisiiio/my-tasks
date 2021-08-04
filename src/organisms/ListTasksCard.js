@@ -4,12 +4,13 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { TaskCard } from "@molecules";
 
-const StyledListTasksCard = styled.main`
+const StyledListTasksCard = styled.section`
   width: 100%;
-  max-width: 900px;
+  padding: 10px 10px;
+  overflow: scroll;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 `;
 
 const ListTasksCard = () => {

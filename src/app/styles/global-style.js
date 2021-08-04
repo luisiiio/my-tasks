@@ -11,12 +11,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  #root {
+  #app {
     height: 100vh;
-    overflow: hidden;
-    width: 100%;
-    display: flex;
-    flex-flow: column;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
   }
 
   ul {
