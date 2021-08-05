@@ -1,7 +1,4 @@
 ![CI](https://img.shields.io/badge/Build%2C%20Test%2C%20Lint%20for%20Main-passing-%2331C755)
-<a href="https://mytasks.picnicdigital.io" target="_blank">
-<img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/35ae5664-8756-4e3a-bb0c-d341283c5dca/deploy-status" width="130" />
-</a>
 
 <h1 align="center">
   <br>My Tasks App <br>
